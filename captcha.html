@@ -8,16 +8,17 @@
         <script type="text/javascript" src="ui.sortable.js"></script>
         <style type="text/css">
             body{
-                background-color: #2daebf;
+                background-color: #a2a2a2;
             }
             form.registration{
-                width:600px;
+                width:320px;
                 margin: 10px auto;
                 padding:10px;
                 font-family: "Trebuchet MS";   
             }
             form.registration fieldset{
                 background-color:#707070;
+				text-align:center;
                 border:none;
                 padding:10px;
                 -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -28,7 +29,7 @@
                 margin:0px 30px 0px 0px;
             }
             form.registration legend{
-                text-align:left;
+                text-align:center;
                 color:#fff;
                 font-size:14px;
                 padding:0px 4px 15px 4px;
@@ -38,8 +39,8 @@
             form.registration label{
                 font-size: 18px;
                 width:200px;
-                float: left;
-                text-align: right;
+                
+                text-align: center;
                 clear:left;
                 margin:4px 4px 0px 0px;
                 padding:0px;
@@ -49,25 +50,25 @@
             form.registration input{
                 font-family: "Trebuchet MS";
                 font-size: 18px;
-                float:left;
+                float:center;
                 width:300px;
                 border:1px solid #cccccc;
                 margin:2px 0px 4px 2px;
-                color:#00abdf;
+                color:#067090;
                 height:26px;
-                padding:3px;
+           
                 -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
                 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
             }
             form.registration input:focus, form.registration select:focus{
-                background-color:#E0E6FF;
+                background-color:#fff;
             }
             form.registration select{
                 font-family: "Trebuchet MS";
                 font-size: 20px;
-                float:left;
+                float:center;
                 border:1px solid #cccccc;
                 margin:2px 0px 2px 2px;
                 color:#00abdf;
@@ -78,7 +79,7 @@
                 -moz-border-radius: 5px;
             }
             .button, .button:visited{
-                float:right;
+                float:center;
                 background: #2daebf url(images/overlay.png) repeat-x; 
                 font-weight:bold;
                 display: inline-block; 
@@ -98,30 +99,7 @@
             .button:hover{
                 background-color: #007d9a; 
             }
-            #sortable {
-                list-style-type: none;
-                margin: 5px 0px 0px 16px;
-                padding: 0;
-            }
-            #sortable li {
-                margin: 3px 3px 3px 0;
-                padding: 1px;
-                float: left;
-                width: 35px;
-                height: 35px;
-                font-size: 20px;
-                text-align: center;
-                line-height:35px;
-                cursor:pointer;
-                -moz-border-radius:5px;
-                -webkit-border-radius:5px;
-                -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.5);
-                -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.5);
-                text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-                background:#2daebf url(images/overlay.png) repeat-x scroll 50% 50%;
-                color:#fff;
-                font-weight:normal;
-            }
+           
             .captcha_wrap{
                 border:1px solid #fff;
                 -moz-border-radius:10px;
@@ -145,57 +123,22 @@
                 border-bottom:1px solid #CCC;
                 background-color:#fff;
             }
+			input[type="range"]{
+			-webkit-appearance: none;
+			background-image: url("images/slider.png");
+			background-size:cover;
+			float:left;
+			}
+			input[type="range"]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			background-image: url("images/slider_button_inactive.png");
+			background-repeat: no-repeat;
+			width: 35px;
+			height: 30px;
+			}
         </style>
-        <script type="text/javascript">
-            (
-            function($){
-
-                $.fn.shuffle = function() {
-                    return this.each(function(){
-                        var items = $(this).children();
-
-                        return (items.length)
-                            ? $(this).html($.shuffle(items,$(this)))
-                        : this;
-                    });
-                }
-
-                $.fn.validate = function() {
-                    var res = false;
-                    this.each(function(){
-                        var arr = $(this).children();
-                        res =    ((arr[0].innerHTML=="1")&&
-                            (arr[1].innerHTML=="2")&&
-                            (arr[2].innerHTML=="3")&&
-                            (arr[3].innerHTML=="4")&&
-                            (arr[4].innerHTML=="5")&&
-                            (arr[5].innerHTML=="6"));
-                    });
-                    return res;
-                }
-
-                $.shuffle = function(arr,obj) {
-                    for(
-                    var j, x, i = arr.length; i;
-                    j = parseInt(Math.random() * i),
-                    x = arr[--i], arr[i] = arr[j], arr[j] = x
-                );
-                    if(arr[0].innerHTML=="1") obj.html($.shuffle(arr,obj))
-                    else return arr;
-                }
-
-            })(jQuery);
-
-            $(function() {
-                $("#sortable").sortable();
-                $("#sortable").disableSelection();
-                $('ul').shuffle();
-
-                $("#formsubmit").click(function(){
-                    ($('ul').validate()) ? alert("Yeah, you are a human!") : alert("No, you are not a human!");
-                });
-            });
-        </script>
+        
+		<link rel="stylesheet" href="slider.css">
     </head>
     <body>
         <form class="registration">
@@ -205,47 +148,62 @@
                 <input type="text" maxlength="100" value=""/>
                 <label>Last name</label>
                 <input type="text" maxlength="100" value=""/>
-                <label>Birthdate</label>
-                <select>
-					<option value="1"></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-                <select>
-					<option></option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                </select>
-                <select>
-					<option></option>
-                    <option value="2009">2009</option>
-                    <option value="2008">2008</option>
-                </select>
+                
+				   
             </fieldset>
             <fieldset>
-                <legend>Account details</legend>
+			<label>Phone number</label>
+                <input type="text" maxlength="100" value=""/>
+                <legend>Contact info</legend>
                 <label>E-Mail</label>
                 <input type="text" maxlength="120" value=""/>
-                <label>Password</label>
-                <input type="password" maxlength="20"/>
+           
             </fieldset>
-            <fieldset>
-                <legend>Let's see if you are a human</legend>
-                <div class="captcha_wrap">
-                    <div class="captcha">
-			Drag to order
-                    </div>
-                    <ul id="sortable">
-                        <li class="captchaItem">1</li>
-                        <li class="captchaItem">2</li>
-                        <li class="captchaItem">3</li>
-                        <li class="captchaItem">4</li>
-                        <li class="captchaItem">5</li>
-                        <li class="captchaItem">6</li>
-                    </ul>
-                </div>
-                <a id="formsubmit" class="button">Register</a>
-            </fieldset>
+           
+		   <fieldset>
+		   <legend>Drag slider until images changes</legend>
+		   
+	<img id="happy" style="margin:25px" align="center"src="images/Smiley_Sad.png"/>
+	
+<input id="in" type="range" min="0" max="10000" value="0" step="1" onchange="showValue(this.value)" />
+
+<input type="button" value="Verify"  onclick="boolChecker()"/>
+
+<script type="text/javascript">
+
+document.getElementById('in').value = 0;
+	var random=Math.floor((Math.random()*9000)+1000);
+	
+	var checker=false;
+
+function showValue(slider)
+{
+
+    if(slider>=random-999 &&slider<random+999){
+		document.getElementById("happy").src = "images/Smiley_Happy.png";
+	
+		checker=true;}
+	else{
+		document.getElementById("happy").src = "images/Smiley_Sad.png";
+		
+		checker=false;}
+}
+function boolChecker(){
+if (checker == true){
+alert("You are human");
+}
+else if (checker == false){
+alert("Go home robot, your drunk!!!!");
+}
+}
+</script>
+ </div>
+		   </fieldset>
+		  
+		   
+		
         </form>
+		
+	
     </body>
 </html>
