@@ -144,22 +144,22 @@
 		<link rel="stylesheet" href="slider.css">
     </head>
     <body>
-        <form class="registration">
+        <form name="myForm" class="registration" onsubmit="return validateForm(); method="post">
             <fieldset>
                 <legend>About you</legend>
                 <label>First name</label>
-                <input type="text" maxlength="100" value=""/>
+                <input type="text" maxlength="100" value="" name="fname"/>
                 <label>Last name</label>
-                <input type="text" maxlength="100" value=""/>
+                <input type="text" maxlength="100" value=""name="lname"/>
                 
 				   
             </fieldset>
             <fieldset>
 			<label>Phone number</label>
-                <input type="text" maxlength="100" value=""/>
+                <input type="text" maxlength="100" value="" name="phone"/>
                 <legend>Contact info</legend>
                 <label>E-Mail</label>
-                <input type="text" maxlength="120" value=""/>
+                <input type="text" maxlength="120" value="" name="email"/>
            
             </fieldset>
            
@@ -170,7 +170,7 @@
 	
 <input id="in" type="range" min="0" max="10000" value="0" step="1" onchange="showValue(this.value)" />
 
-<input type="button" value="Verify"  onclick="boolChecker()"/>
+<input type="button" value="Verify"  onclick="boolChecker(); validateForm()"/>
 
 <script type="text/javascript">
 
@@ -198,6 +198,35 @@ alert("You are human");
 else if (checker == false){
 alert("Go home robot, your drunk!!!!");
 }
+}
+function validateForm()
+{
+var x=document.forms["myForm"]["email"].value;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  {
+  alert("Not a valid e-mail address");
+
+  }
+var z=document.forms["myForm"]["fname"].value;
+if (z==null || z=="")
+  {
+  alert("First name must be filled out");
+ 
+  }
+  var y=document.forms["myForm"]["lname"].value;
+if (y==null || y=="")
+  {
+  alert("Last name must be filled out");
+ 
+  }
+ var w=document.forms["myForm"]["phone"].value;
+if (w==null || w=="")
+  {
+  alert("Phone number must be filled out");
+ 
+  }
 }
 </script>
  </div>
