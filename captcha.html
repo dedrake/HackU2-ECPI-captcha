@@ -16,26 +16,6 @@
                 padding:10px;
                 font-family: "Trebuchet MS";   
             }
-			input[type="range"] {
-    -webkit-appearance: none;
-    background-color: black;
-    height: 2px;
-}
- 
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    position: relative;
-    top: -1px;
-    z-index: 1;
-    width: 11px;
-    height: 11px;
- 
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(50%,#abd3ee), color-stop(51%,#89c3eb), color-stop(100%,#d5ebfb));
-}
-- See more at: http://www.webstutorial.com/range-input-slider-html5-css3/html-5#sthash.ObXVKgo0.dpuf
             form.registration fieldset{
                 background-color:#707070;
                 border:none;
@@ -216,6 +196,7 @@ input[type="range"]::-webkit-slider-thumb {
                 });
             });
         </script>
+		<link rel="stylesheet" href="slider.css">
     </head>
     <body>
         <form class="registration">
@@ -225,9 +206,24 @@ input[type="range"]::-webkit-slider-thumb {
                 <input type="text" maxlength="100" value=""/>
                 <label>Last name</label>
                 <input type="text" maxlength="100" value=""/>
-                <label>Phone number</label>
-				<input type="text" maxlength="100" value=""/>
-			</fieldset>
+                <label>Birthdate</label>
+                <select>
+					<option value="1"></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <select>
+					<option></option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                </select>
+                <select>
+					<option></option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                </select>
+				     <a id="formsubmit" class="button">Register</a>
+            </fieldset>
             <fieldset>
                 <legend>Account details</legend>
                 <label>E-Mail</label>
@@ -235,30 +231,14 @@ input[type="range"]::-webkit-slider-thumb {
                 <label>Password</label>
                 <input type="password" maxlength="20"/>
             </fieldset>
-            <fieldset>
-                <legend>Are you a human?</legend>
-                <div class="captcha_wrap">
-                    <div class="captcha">
-			Move the Slider to change Emoticon
-                    </div>
-                  <input type="range" min="0" max="50" value="0" step="1" onchange="showValue(this.value)" />
-<span id="range">0</span>
-<script type="text/javascript">
-function showValue(newValue)
-{
- document.getElementById("range").innerHTML=newValue;
- rangeID=newValue;
-if(rangeID >= 20 && rangeID <= 30){
-
-}
-	
-	
-}
-</script>
-                    </ul>
-                </div>
-                <a id="formsubmit" class="button">Register</a>
-            </fieldset>
+           
         </form>
+		 <div id="player">
+		<div id="volume"></div>
+	</div>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/jquery-ui-git.js"></script>
+  <script type="text/javascript" src="slider.js"></script>
+                </div>
     </body>
 </html>
