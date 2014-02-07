@@ -11,7 +11,7 @@
                 background-color: #a2a2a2;
             }
             form.registration{
-                width:320px;
+                width:290px;
                 margin: 10px auto;
                 padding:10px;
                 font-family: "Trebuchet MS";
@@ -51,12 +51,12 @@
                 font-family: "Trebuchet MS";
                 font-size: 18px;
                 float:center;
-                width:300px;
+                width:290px;
                 border:1px solid #cccccc;
-                margin:2px 0px 4px 2px;
-                color:#067090;
-                height:26px;
 
+				color:#067090;
+                height:25px;
+           
                 -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
                 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
                 -webkit-border-radius: 5px;
@@ -125,8 +125,10 @@
             }
 			input[type="range"]{
 			-webkit-appearance: none;
-			background-image: url("images/slider.png");
-			background-size:cover;
+			background-image: url("images/slider2.png");
+			background-repeat:no-repeat;
+			background-size: 100%;
+		
 			float:left;
 			}
 			input[type="range"]::-webkit-slider-thumb {
@@ -165,21 +167,29 @@
 		   <fieldset>
 		   <legend>Drag slider until images changes</legend>
 		   
-	<p>Make the face the</p>
-	<span id="face"></span>
+	<label>Move slider to change the face to </label>
+	<label id="face"></label>
+<br>
 	<span id="face3"></span>
 
-	<img id="happy" style="margin:25px" valign="bottom" align="center"src="images/Sad_face.png"/>
-	<input id="in" type="range" min="0" max="10000" value="0" step="1" onchange="showValue(this.value)" />
-	<input id="send" type="button" value="Submit"  name="send"onclick="boolChecker()"/>
+	
+	<img id="happy" valign="bottom" align="left"  height="60" width="60" src="images/Sad_face.png"/>
 
+	<input id="in" type="range" min="0" max="10000" value="0" step="1"  onchange="showValue(this.value)" />
+
+	<input id="send" type="button" value="Submit"  name="send"onclick="boolChecker()"/>
+		</fieldset>
+		<fieldset>
+		<legend>Created by ECPI Students</legend>
+		<img id="logo" src="images/emoticaptcha_logo.png"/>
+		</fieldset>
 <script type="text/javascript">
 
 	document.getElementById('in').value = 0;
 	var random=Math.floor((Math.random()*8000)+1000);
 	var round=Math.floor(random/1000);
 	var checker=false;
-	var face=new Array("Sad","Smiley","Pirate","Green","Skeleton","Lovey","Nerd","O","Devil");
+	var face=new Array("Sad","Smiley","Pirate","Green","Skeleton","Lovey","Nerd","Purple","Devil");
 	var loop=0;
 	document.getElementById("face").innerHTML=face[round];
 
