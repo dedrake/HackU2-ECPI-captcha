@@ -164,21 +164,32 @@
 
             </fieldset>
            
-		   <fieldset>
-		   <legend>Drag slider until images changes</legend>
-		   
+
+		   <legend style="margin-left:44px; padding:5px;">Drag slider until images changes</legend>
+		  <fieldset> 
+	<table>
+	<tr>
+	<td colspan="2">
+		<img id="happy" valign="bottom" align="left"  height="60" width="60" src="images/Sad_face.png"/>
+
+	</td>
+		<td>
 	<label>Move slider to change the face to </label>
 	<label id="face"></label>
-<br>
-	<span id="face3"></span>
-
+		</td>
+		<td>
 	
-	<img id="happy" valign="bottom" align="left"  height="60" width="60" src="images/Sad_face.png"/>
+		</td>
+</tr>
+
+</table>
+<br>
+	
 
 	<input id="in" type="range" min="0" max="10000" value="0" step="1"  onchange="showValue(this.value)" />
 
 	<input id="send" type="button" value="Submit"  name="send"onclick="boolChecker()"/>
-		</fieldset>
+</fieldset>
 		<fieldset>
 		<legend>Created by ECPI Students</legend>
 		<img id="logo" src="images/emoticaptcha_logo.png"/>
